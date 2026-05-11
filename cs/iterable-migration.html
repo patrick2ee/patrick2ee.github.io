@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>SFMC &rarr; Iterable Migration — Patrick Toohey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <script>
+    if (localStorage.getItem('pt_unlocked') !== 'true') {
+      window.location.replace('../unlock.html');
+    }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__brand" href="../index.html">Patrick Toohey</a>
+    <div class="nav__links">
+      <a href="../index.html#work">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <article class="section container container--reading">
+
+      <p class="eyebrow">Case Study 03</p>
+      <h1>SFMC &rarr; Iterable: Replatforming Lifecycle Marketing</h1>
+
+      <div class="impact">
+        <div class="impact__cell">
+          <div class="impact__num">100%</div>
+          <div class="impact__label">Journeys migrated, on plan</div>
+        </div>
+        <div class="impact__cell">
+          <div class="impact__num">53</div>
+          <div class="impact__label">Unique workflows</div>
+        </div>
+        <div class="impact__cell">
+          <div class="impact__num">250+</div>
+          <div class="impact__label">Unique campaigns</div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Platform Migration</span>
+        <span class="tag">Cross-functional Leadership</span>
+        <span class="tag">MarTech Architecture</span>
+        <span class="tag">Scalable Systems</span>
+        <span class="tag">Data Integrity</span>
+      </div>
+
+      <div class="cs-body">
+
+        <h2>Context</h2>
+        <p>
+          By late 2024, Salesforce Marketing Cloud had become a strategic bottleneck. Velocity
+          was slow &mdash; email builds took hours to days &mdash; channel expansion stalled
+          (no path to modern SMS or push), and our most-used features required heavy engineering
+          dependence on data extensions, automation SQL activities, and manual middleware.
+          Lifecycle was structurally limited by the platform, not by ambition.
+        </p>
+        <p>
+          For over a year I led my team's end-to-end platform migration to Iterable. The work
+          required executive sign-off, an aligned roadmap across Engineering, Finance, Compliance, 
+          and Architecture, and a phased plan that maintained business
+          continuity through cutover.
+        </p>
+
+        <h2>Approach</h2>
+        <p>
+          The migration ran in four phases across 2025, each gated on the previous. I owned the
+          plan, the cross-functional dependencies, and the proof-of-success methodology used to
+          de-risk every milestone.
+        </p>
+
+        <div class="branch">
+          <div class="branch__num">Phase 01 &middot; Q1 2025</div>
+          <h3>Platform readiness &amp; resourcing</h3>
+          <p>
+            Finalized vendor scope and pricing, engaged outboard migration partners where helpful,
+            and defined per-journey and per-channel migration plans (Email, SMS, net-new Push,
+            Ringless Voice). Built executive and cross-functional alignment on the cutover sequence.
+          </p>
+        </div>
+
+        <div class="branch">
+          <div class="branch__num">Phase 02 &middot; Q2 2025</div>
+          <h3>Foundational launch &amp; scale prep</h3>
+          <p>
+            Launched the first production campaign on Iterable. Established the snippet system,
+            Build Process documentation, and QA gates that would carry the entire migration. This
+            phase set the standard everything after it had to meet.
+          </p>
+        </div>
+
+        <div class="branch">
+          <div class="branch__num">Phase 03 &middot; Q3 &mdash; Q4 2025</div>
+          <h3>Migration at scale</h3>
+          <p>
+            Moved 90%+ of journeys to Iterable while maintaining business continuity. Validated
+            performance against SFMC baselines using a parallel-running funnel methodology
+            (HighTouch + LBRC + Funnel Form Submit), with isolated case studies controlling for
+            platform-specific confounding variables.
+          </p>
+        </div>
+
+        <div class="branch">
+          <div class="branch__num">Phase 04 &middot; Q1 2026</div>
+          <h3>Full cutover &amp; capability expansion</h3>
+          <p>
+            Migrated the remaining journeys, validated Iterable&rsquo;s AI/optimization features
+            against equivalents for inclusion in our 2026 roadmap, finalized SMS carrier approval,
+            and launched the first push notification program. SFMC fully sunset.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Before/After capability matrix — breaks out of the reading column for visual weight. -->
+    <section class="container">
+      <p class="eyebrow" style="margin: 0 0 var(--s-2); padding-left: var(--s-4);">What changed</p>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>SFMC (before)</th>
+            <th>Iterable (after)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="matrix__cap">Email build time</td>
+            <td class="matrix__sfmc">Hours to days; engineering-heavy, custom HTML per campaign</td>
+            <td class="matrix__itr">Under 15 minutes; marketer-led using the snippet library</td>
+          </tr>
+          <tr>
+            <td class="matrix__cap">Audience routing</td>
+            <td class="matrix__sfmc">Engineering middleware via data extensions and automation SQL activities</td>
+            <td class="matrix__itr">Direct Databricks &rarr; Iterable via HighTouch &mdash; Lifecycle owns the path</td>
+          </tr>
+          <tr>
+            <td class="matrix__cap">Cross-channel reuse</td>
+            <td class="matrix__sfmc">Channel-specific journeys; audience logic duplicated</td>
+            <td class="matrix__itr">Unified audience logic across Email, SMS, and Push</td>
+          </tr>
+          <tr>
+            <td class="matrix__cap">Suppression visibility</td>
+            <td class="matrix__sfmc">Opaque &ldquo;black box&rdquo; &mdash; ~11M users suppressed with limited rationale</td>
+            <td class="matrix__itr">Data-dictionary-backed and queryable; transparent in audience counts</td>
+          </tr>
+          <tr>
+            <td class="matrix__cap">Link &amp; UTM integrity</td>
+            <td class="matrix__sfmc">Manually applied per email; chronic null-UTM bugs in reporting</td>
+            <td class="matrix__itr">Applied at the template level; null-UTM incidents driven to near zero</td>
+          </tr>
+          <tr>
+            <td class="matrix__cap">Experimentation infra</td>
+            <td class="matrix__sfmc">Manual setup, multi-week lead times</td>
+            <td class="matrix__itr">HighTouch + Growthbook integration; audience-level splits at touchpoint</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <article class="section container container--reading">
+      <div class="cs-body">
+
+        <h2>Outcome</h2>
+        <p>
+          The migration completed on plan in Q1 2026 and the impact is visible across the funnel:
+        </p>
+        <ul>
+          <li><strong>HELOC reachable audience expanded 42%</strong> after rebuilding reentry criteria on Iterable&rsquo;s native audience model.</li>
+          <li><strong>In-Payment Repeat Loans: +26% originations per user</strong> and a +30% volume lift, after misalignment in the SFMC implementation was resolved during migration.</li>
+          <li><strong>Activation campaigns: bounce rate down ~80%; Open &times; Click up ~55%</strong> &mdash; driven by IP separation, data-integrity fixes, and proper bounce handling.</li>
+          <li><strong>Matured Borrower: +18% subscriber volume</strong>, with a 21% drop in same-user duplicates after CIM re-entry logic was rebuilt cleanly.</li>
+          <li><strong>~3 fewer organizational days per new campaign</strong> from removing the middleware between Databricks and the CRM.</li>
+        </ul>
+        <p>
+          Beyond performance: the team is no longer engineering-bound on email production.
+          Marketing managers ship campaigns end-to-end, and the cycle-time savings now compound
+          into strategy and experimentation rather than QA. The migration is the foundation the
+          AI-native pipeline (see <a href="module-library.html">the Module Library case study</a>)
+          is built on.
+        </p>
+
+        <p class="muted" style="font-size: 0.9rem; margin-top: var(--s-6);">
+          Detailed migration plan, technical RFC, vendor evaluation, and post-launch performance
+          readouts available on request.
+        </p>
+
+        <hr class="rule" />
+        <p>
+          <a href="module-library.html">&larr; Previous: Lifecycle Module Library</a>
+          &nbsp;&middot;&nbsp;
+          <a href="../index.html#work">All case studies</a>
+        </p>
+
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div>&copy; <span id="year"></span> Patrick Toohey</div>
+    <div><a href="../index.html">Home</a></div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

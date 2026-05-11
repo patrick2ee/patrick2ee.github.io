@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Patrick Toohey — Lifecycle Marketer. Selected work in lifecycle strategy, MarTech, and AI-augmented marketing." />
+  <!-- Discourage search engines from indexing the unlisted portfolio -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Patrick Toohey — Lifecycle Marketer</title>
+
+  <!-- Fonts: Source Serif 4 for editorial body, Inter for UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Top navigation, used on every page -->
+  <nav class="nav">
+    <a class="nav__brand" href="index.html">Patrick Toohey</a>
+    <div class="nav__links">
+      <a href="#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero container">
+      <p class="eyebrow">Senior Lifecycle Marketer</p>
+      <h1 class="hero__name">Patrick Toohey</h1>
+      <p class="hero__tagline">
+        Building lifecycle programs at the intersection of strategy, MarTech, and machine learning &mdash;
+        with a focus on revenue impact, scalable systems, and AI-augmented workflows.
+      </p>
+    </section>
+
+    <!-- PILLARS / WHAT I DO -->
+    <section class="section container">
+      <p class="eyebrow">What I do</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Lifecycle strategy</h3>
+          <p>Mapping audience segments to revenue moments. Turning dormant audiences into incremental pipeline.</p>
+        </div>
+        <div class="pillar">
+          <h3>MarTech &amp; operations</h3>
+          <p>Designing scalable systems across CDPs, ESPs, and the data layer that powers them.</p>
+        </div>
+        <div class="pillar">
+          <h3>AI-augmented workflows</h3>
+          <p>Integrating ML and LLMs into the lifecycle stack to compress cycle time and unlock personalization.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- SELECTED WORK -->
+    <section id="work" class="section container">
+      <p class="eyebrow">Selected work</p>
+      <h2>Case studies</h2>
+
+      <div class="work-list">
+
+        <!-- CS1 -->
+        <a class="work-card" href="cs/dq-reactivation.html">
+          <div>
+            <div class="work-card__stat">$1.2M</div>
+            <div class="work-card__stat-label">Revenue, initial test</div>
+          </div>
+          <div>
+            <h3 class="work-card__title">Reactivating Disqualified Applicants</h3>
+            <p class="work-card__desc">Turning a previously written-off audience into a recurring monthly revenue channel through experimental targeting, ML scoring, and explainability-driven messaging.</p>
+            <p class="work-card__meta">Strategy &middot; ML collaboration &middot; CDP</p>
+          </div>
+        </a>
+
+        <!-- CS2 -->
+        <a class="work-card" href="cs/module-library.html">
+          <div>
+            <div class="work-card__stat">75+</div>
+            <div class="work-card__stat-label">Reusable modules in production</div>
+          </div>
+          <div>
+            <h3 class="work-card__title">Lifecycle Module Library</h3>
+            <p class="work-card__desc">Six-year evolution of an email infrastructure &mdash; from ad hoc HTML to a snippet system to an AI-native pipeline. Used across 100% of marketing emails.</p>
+            <p class="work-card__meta">MarTech &middot; Scale &middot; AI integration</p>
+          </div>
+        </a>
+
+        <!-- CS3 -->
+        <a class="work-card" href="cs/iterable-migration.html">
+          <div>
+            <div class="work-card__stat">100%</div>
+            <div class="work-card__stat-label">Journeys migrated SFMC &rarr; Iterable</div>
+          </div>
+          <div>
+            <h3 class="work-card__title">SFMC &rarr; Iterable Migration</h3>
+            <p class="work-card__desc">Leading Upstart&rsquo;s lifecycle replatforming end-to-end &mdash; a year-long program that eliminated engineering dependencies, expanded audience reach, and unlocked AI-native experimentation.</p>
+            <p class="work-card__meta">Platform &middot; MarTech &middot; Cross-functional</p>
+          </div>
+        </a>
+
+        <!-- To add a new case study: duplicate the CS3 block above and
+             update the href, stat, title, description, and tags. -->
+
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- ABOUT PREVIEW -->
+    <section class="section container container--reading">
+      <p class="eyebrow">About</p>
+      <h2>A marketer who codes &mdash; and a coder who markets.</h2>
+      <p class="muted">
+        I lead lifecycle marketing programs that treat the email channel as a product:
+        instrumented, iterated, and built to compound. My work sits between strategy,
+        engineering, and machine learning &mdash; and I&rsquo;m happiest when those teams are in the same room.
+      </p>
+      <p><a href="about.html">More about me &rarr;</a></p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>&copy; <span id="year"></span> Patrick Toohey</div>
+    <div><a href="about.html#contact">Get in touch</a></div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Auto-update the year in the footer so you never have to.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

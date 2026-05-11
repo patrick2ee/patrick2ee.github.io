@@ -1,0 +1,707 @@
+/* ============================================================
+   Patrick Toohey — Portfolio
+   One stylesheet, organized top-down:
+   1. Design tokens (colors, fonts, spacing) — change these to rebrand
+   2. Base / typography
+   3. Layout primitives (container, rule, grid)
+   4. Components (nav, hero, ImpactStat, case study card, timeline, form)
+   5. Page-specific tweaks
+   ============================================================ */
+
+/* 1. DESIGN TOKENS ------------------------------------------- */
+:root {
+  /* Color — warm cream + near-black, single oxblood accent */
+  --bg:        #faf8f3;
+  --bg-alt:    #f1ede4;
+  --text:      #161613;
+  --muted:     #6b6b66;
+  --rule:      #d9d4c8;
+  --accent:    #6b2c1f;
+
+  /* Type */
+  --serif: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing — based on an 8px grid */
+  --s-1: 0.5rem;   /*  8px */
+  --s-2: 1rem;     /* 16px */
+  --s-3: 1.5rem;   /* 24px */
+  --s-4: 2rem;     /* 32px */
+  --s-6: 3rem;     /* 48px */
+  --s-8: 4rem;     /* 64px */
+  --s-12: 6rem;    /* 96px */
+  --s-16: 8rem;    /* 128px */
+
+  /* Layout widths */
+  --w-max:      1200px;
+  --w-reading:  680px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* 2. BASE ---------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent); }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 var(--s-3);
+}
+h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: 1.375rem; }
+p  { margin: 0 0 var(--s-2); }
+
+/* "Editorial" small-caps label */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 3. LAYOUT PRIMITIVES --------------------------------------- */
+.container {
+  max-width: var(--w-max);
+  margin: 0 auto;
+  padding: 0 var(--s-4);
+}
+.container--reading { max-width: var(--w-reading); }
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--s-8) 0;
+}
+
+.section { padding: var(--s-12) 0; }
+.section--tight { padding: var(--s-8) 0; }
+
+/* 4. COMPONENTS ---------------------------------------------- */
+
+/* --- Navigation --- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--s-3) var(--s-4);
+  max-width: var(--w-max);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--rule);
+}
+.nav__brand {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav__links { display: flex; gap: var(--s-4); }
+.nav__links a {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+.nav__links a:hover { color: var(--accent); }
+
+/* --- Hero --- */
+.hero { padding: var(--s-16) 0 var(--s-12); }
+.hero__name { font-size: clamp(3rem, 7vw, 5rem); margin-bottom: var(--s-4); }
+.hero__tagline {
+  max-width: var(--w-reading);
+  font-size: 1.25rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --- Pillars (What I do) --- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s-6);
+  margin-top: var(--s-6);
+}
+.pillar h3 { margin-bottom: var(--s-1); }
+.pillar p { color: var(--muted); font-size: 1rem; }
+
+/* --- Case study cards (home grid) --- */
+.work-list { display: flex; flex-direction: column; gap: var(--s-8); margin-top: var(--s-6); }
+.work-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--s-6);
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s var(--ease);
+}
+.work-card:hover { transform: translateX(4px); }
+.work-card:hover .work-card__title { color: var(--accent); }
+.work-card__stat { font-family: var(--serif); font-size: 2.5rem; line-height: 1; }
+.work-card__stat-label { font-family: var(--sans); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.work-card__title { font-size: 1.75rem; margin-bottom: var(--s-2); transition: color 0.2s; }
+.work-card__desc { color: var(--muted); margin-bottom: var(--s-2); }
+.work-card__meta { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+.work-card--placeholder { opacity: 0.5; pointer-events: none; }
+
+@media (max-width: 700px) {
+  .work-card { grid-template-columns: 1fr; gap: var(--s-3); }
+}
+
+/* --- ImpactStat block (top of every case study) --- */
+.impact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--text);
+  border-bottom: 1px solid var(--text);
+  margin: var(--s-6) 0 var(--s-8);
+}
+.impact__cell {
+  padding: var(--s-4) var(--s-3);
+  border-right: 1px solid var(--rule);
+}
+.impact__cell:last-child { border-right: 0; }
+.impact__num {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  margin-bottom: var(--s-1);
+}
+.impact__label {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .impact { grid-template-columns: 1fr; }
+  .impact__cell { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .impact__cell:last-child { border-bottom: 0; }
+}
+
+/* --- Skill tags --- */
+.tags { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-3) 0 var(--s-6); }
+.tag {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+/* --- Case study reading body --- */
+.cs-body { max-width: var(--w-reading); }
+.cs-body h2 { margin-top: var(--s-8); }
+.cs-body ul { padding-left: var(--s-3); }
+.cs-body li { margin-bottom: var(--s-2); }
+.cs-body strong { font-weight: 600; }
+
+/* --- Branch breakdown (CS1) --- */
+.branch {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s-4);
+  margin-top: var(--s-4);
+}
+.branch h3 { font-size: 1.25rem; margin-bottom: var(--s-1); }
+.branch__num {
+  font-family: var(--sans); font-size: 0.75rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: var(--s-1);
+}
+
+/* --- Horizontal timeline (CS2) --- */
+.timeline-wrap { margin: var(--s-6) calc(var(--s-4) * -1); /* break out of container */ }
+.timeline {
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--s-4);
+  /* Soft fade on edges hints there's more content */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.timeline::-webkit-scrollbar { height: 6px; }
+.timeline::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+.timeline-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  padding: var(--s-4);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.timeline-card__year {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s-2);
+}
+.timeline-card h3 { font-size: 1.25rem; margin-bottom: var(--s-2); }
+.timeline-card p { font-size: 0.95rem; color: var(--muted); }
+.timeline-hint {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: var(--s-2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* --- Module gallery (CS2)
+   Same horizontal-scroll/snap mechanic as the timeline, but the cards
+   are framed image tiles with a caption. Each card has a fixed size
+   and the image is "contained" inside it so different aspect ratios
+   (square value-prop, tall hero, wide logo) all sit cleanly together. */
+.modules-wrap {
+  margin: var(--s-6) calc(var(--s-4) * -1);
+  position: relative;       /* anchor for the absolute-positioned arrow buttons */
+}
+
+/* Arrow buttons sit on top of the carousel, vertically centered */
+.modules-btn {
+  position: absolute;
+  top: calc(50% - 1.25rem);  /* offset to ignore the "Scroll" hint below */
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.modules-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.modules-btn--prev { left: var(--s-2); }
+.modules-btn--next { right: var(--s-2); }
+.modules-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+.modules {
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--s-4);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.modules::-webkit-scrollbar { height: 6px; }
+.modules::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+.module-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  margin: 0;
+}
+.module-card__frame {
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  aspect-ratio: 4 / 5;     /* every frame is the same shape... */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-2);
+  overflow: hidden;
+}
+
+/* Larger variant: use for diagrams/screenshots that need to be legible.
+   `min(560px, 85vw)` keeps cards readable on desktop but stops them
+   from being wider than the phone screen on mobile. */
+.modules--large .module-card {
+  flex: 0 0 min(560px, 85vw);
+}
+.modules--large .module-card__frame {
+  aspect-ratio: 4 / 3;
+  padding: var(--s-3);
+}
+.module-card__frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;     /* ...the image scales inside without distortion */
+  display: block;
+}
+.module-card__caption {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-top: var(--s-2);
+}
+
+/* Carousel images are clickable — hint with a zoom cursor */
+[data-carousel] .module-card__frame img { cursor: zoom-in; }
+
+/* --- Lightbox (full-screen image viewer)
+   Triggered by clicking any image inside [data-carousel].
+   Markup is injected by main.js into <body>, so no HTML changes needed. */
+.lightbox {
+  position: fixed;
+  inset: 0;                       /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(20, 20, 18, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-6);
+  z-index: 100;
+}
+.lightbox.is-open { display: flex; }
+.lightbox__img {
+  max-width: min(1200px, 92vw);
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.lightbox__close {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lightbox__close:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.85);
+}
+.lightbox__caption {
+  position: absolute;
+  bottom: var(--s-4);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.85);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Prev/next arrows inside the lightbox — same visual language as the
+   carousel arrows on the page, but larger and white-on-dark. */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 1;
+}
+.lightbox__nav:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.85);
+}
+.lightbox__nav--prev { left: var(--s-4); }
+.lightbox__nav--next { right: var(--s-4); }
+.lightbox__nav[hidden] { display: none; }
+
+@media (max-width: 600px) {
+  .lightbox__nav { width: 44px; height: 44px; }
+  .lightbox__nav--prev { left: var(--s-2); }
+  .lightbox__nav--next { right: var(--s-2); }
+}
+
+/* When the lightbox is open, prevent the page underneath from scrolling */
+body.no-scroll { overflow: hidden; }
+
+/* --- Snippet cards (CS2 — Snippet library)
+   Each snippet has a header (name + description), a code block, and a
+   toggle button. The code block clamps to a max-height when collapsed,
+   with a fade gradient hinting "there's more"; expand shows the full
+   source with internal scroll if it's very long. */
+.snippet {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg);
+  margin: var(--s-4) 0;
+  overflow: hidden;
+}
+.snippet__head {
+  padding: var(--s-3);
+  border-bottom: 1px solid var(--rule);
+}
+.snippet__name {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace;
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+.snippet__desc {
+  margin: var(--s-1) 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.snippet__code {
+  position: relative;
+  margin: 0;
+  padding: var(--s-3);
+  background: #1e1e1a;
+  color: #d4cfc0;
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  max-height: 220px;
+  overflow: hidden;
+  white-space: pre-wrap;       /* wrap long lines instead of horizontal scroll */
+  overflow-wrap: anywhere;     /* break very long unbroken strings (URLs, classes) */
+  transition: max-height 0.35s ease;
+}
+.snippet__code::after {
+  /* fade-to-dark gradient that hints "there's more code below" */
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(30,30,26,0), #1e1e1a);
+  pointer-events: none;
+}
+.snippet.is-open .snippet__code {
+  max-height: 600px;
+  overflow-y: auto;            /* only vertical scroll — no horizontal */
+  overflow-x: hidden;
+}
+.snippet.is-open .snippet__code::after { display: none; }
+.snippet__toggle {
+  width: 100%;
+  padding: 14px var(--s-3);
+  border: 0;
+  border-top: 1px solid var(--rule);
+  background: var(--bg-alt);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.snippet__toggle:hover { background: var(--accent); color: var(--bg); }
+
+/* --- Before/after matrix (CS3)
+   A simple 3-column comparison table. Stacks into mobile cards on
+   narrow viewports so each "row" reads as its own block. */
+.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s-6) calc(var(--s-4) * -1) var(--s-8);
+  font-size: 0.95rem;
+}
+.matrix th {
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  padding: var(--s-2) var(--s-3) var(--s-2) 0;
+  border-bottom: 1px solid var(--text);
+}
+.matrix th:first-child { padding-left: var(--s-4); }
+.matrix th:last-child  { padding-right: var(--s-4); }
+.matrix td {
+  padding: var(--s-3) var(--s-3) var(--s-3) 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.matrix td:first-child { padding-left: var(--s-4); }
+.matrix td:last-child  { padding-right: var(--s-4); }
+.matrix tr:last-child td { border-bottom: 0; }
+.matrix__cap  { font-weight: 600; width: 22%; }
+.matrix__sfmc { color: var(--muted); width: 39%; }
+.matrix__itr  { color: var(--text); width: 39%; }
+
+/* On narrow screens, stack each row as a card */
+@media (max-width: 700px) {
+  .matrix { margin: var(--s-6) 0 var(--s-8); display: block; }
+  .matrix thead { display: none; }
+  .matrix tbody, .matrix tr, .matrix td { display: block; width: auto; }
+  .matrix tr {
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .matrix tr:last-child { border-bottom: 0; }
+  .matrix td {
+    padding: var(--s-1) 0;
+    border-bottom: 0;
+  }
+  .matrix__cap {
+    font-size: 1.05rem;
+    margin-bottom: var(--s-1);
+  }
+  .matrix__sfmc::before,
+  .matrix__itr::before {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .matrix__sfmc::before { content: "SFMC"; }
+  .matrix__itr::before  { content: "Iterable"; color: var(--accent); }
+}
+
+/* --- Syntax highlight tokens (paired with main.js highlighter) */
+.hl-tag      { color: #8fb4c8; }   /* HTML tag names */
+.hl-str      { color: #c4a86a; }   /* attribute values "..." */
+.hl-comment  { color: #707068; font-style: italic; }
+.hl-hbs-lit  { color: #7fa9d4; }   /* {{{link}}}, {{var}} — literal variables (BLUE) */
+.hl-hbs-cond { color: #92c190; }   /* {{#if}}, {{else}}, {{/if}} — conditionals (GREEN) */
+
+/* --- Forms (about/contact) --- */
+.form { max-width: 480px; }
+.form label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: var(--s-3) 0 var(--s-1);
+}
+.form input, .form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--serif);
+  font-size: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--text);
+}
+.form input:focus, .form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.form textarea { min-height: 140px; resize: vertical; }
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  background: var(--text);
+  color: var(--bg);
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: var(--s-3);
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--accent); color: var(--bg); }
+
+/* --- Unlock page --- */
+.unlock {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--s-4);
+  text-align: center;
+}
+.unlock__inner { max-width: 360px; }
+.unlock h1 { font-size: 1.75rem; margin-bottom: var(--s-2); }
+.unlock p  { color: var(--muted); margin-bottom: var(--s-4); }
+.unlock__error { color: var(--accent); font-size: 0.875rem; min-height: 1.5em; }
+
+/* --- Footer --- */
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--s-6) var(--s-4);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  max-width: var(--w-max);
+  margin: var(--s-12) auto 0;
+}
+.footer a { color: var(--muted); }
+
+/* 5. UTILITIES ----------------------------------------------- */
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.mt-0 { margin-top: 0; }

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Reactivating Disqualified Applicants — Patrick Toohey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <!-- Password gate. Note relative path: from /cs/, unlock.html is one folder up. -->
+  <script>
+    if (localStorage.getItem('pt_unlocked') !== 'true') {
+      window.location.replace('../unlock.html');
+    }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__brand" href="../index.html">Patrick Toohey</a>
+    <div class="nav__links">
+      <a href="../index.html#work">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <article class="section container container--reading">
+
+      <p class="eyebrow">Case Study 01</p>
+      <h1>Reactivating Disqualified Applicants</h1>
+
+      <!-- IMPACT STAT — the consistent treatment that opens every case study.
+           Replace placeholder X values with real numbers when ready. -->
+      <div class="impact">
+        <div class="impact__cell">
+          <div class="impact__num">$1.2M</div>
+          <div class="impact__label">Revenue, initial test</div>
+        </div>
+        <div class="impact__cell">
+          <div class="impact__num">25,000+</div>
+          <div class="impact__label">Applicants reactivated</div>
+        </div>
+        <div class="impact__cell">
+          <div class="impact__num">$300K / mo</div>
+          <div class="impact__label">Ongoing run rate since April '26</div>
+        </div>
+      </div>
+
+      <!-- Skill tags -->
+      <div class="tags">
+        <span class="tag">Strategic Segmentation</span>
+        <span class="tag">Low-cost Revenue</span>
+        <span class="tag">ML Collaboration</span>
+        <span class="tag">CDP</span>
+        <span class="tag">Cross-functional</span>
+      </div>
+
+      <!-- BODY -->
+      <div class="cs-body">
+
+        <h2>Context</h2>
+        <p>
+          Disqualified applicants are a notoriously difficult market to tap. We had proven across
+          numerous tests and analyses that once disqualified in an initial application, a user was unlikely to qualify
+          again in a subsequent one. But some did, either because their creditworthiness had meaningfully improved
+          or because our underwriting model had. The scale of the audience was the real prize:
+          millions of personal loan applications are disqualified every year.
+        </p>
+        <p>
+          The opportunity was to find the small, high-intent slice of that population &mdash; the
+          ones who <em>would</em> reapply successfully &mdash; without burning trust by re-targeting
+          everyone indiscriminately.
+        </p>
+
+        <h2>Approach</h2>
+        <p>
+          The strategy split into three branches, each tackling a different part of the problem.
+        </p>
+
+        <!-- Three branches -->
+        <div class="branch">
+          <div class="branch__num">Branch 01</div>
+          <h3>Experimental targeting</h3>
+          <p>
+            Integrated new targeting data into the CDP to slice the previously-disqualified
+            audience along experimental vectors like Adverse Action Notice (AAN) codes,
+            cross-channel prescreen data, and behavioral triggers from other messaging surfaces.
+            This gave us the segmentation granularity to test hypotheses about <em>who</em> within
+            the disqualified pool was most likely to reactivate.
+          </p>
+        </div>
+
+        <div class="branch">
+          <div class="branch__num">Branch 02</div>
+          <h3>Offline prequalification</h3>
+          <p>
+            Partnered with the Machine Learning team to assess the current creditworthiness of
+            previously-disqualified applicants using their original application details and
+            on-site prediction data. When ML flagged an applicant as high-quality, I would
+            enter them into a personalized flow inviting them to reapply. This was crucial, as 
+            we measured incrementality for this audience at 90% for applicants older than 6 months. In
+            other words, they were not reapplying on their own without our outreach.
+          </p>
+        </div>
+
+        <div class="branch">
+          <div class="branch__num">Branch 03</div>
+          <h3>Actionable insights</h3>
+          <p>
+            Worked with the ML explainability team to build personalized messages triggered at the
+            moment of disqualification. Each message gave the applicant <em>actionable</em> next
+            steps based on the model&rsquo;s interpretation of their reason for DQ &mdash; turning
+            a dead end into a path forward. Result: a 6% lift in reapplication rate from just a single 
+            marketing touchpoint, or 10K+ reactivations per month.
+          </p>
+        </div>
+
+        <h2>Outcome</h2>
+        <p>
+          The combined program reactivated <strong>25,000+ previously-dormant applicants</strong>,
+          drove <strong>$1.2M in revenue from the December experiment alone</strong>, and has been
+          generating <strong>$300K / month in run-rate revenue since April 2026</strong> &mdash; turning a
+          channel everyone had written off into a recurring contributor.
+        </p>
+        <p class="muted" style="font-size: 0.9rem; margin-top: var(--s-6);">
+          Detailed overview doc and full segmentation logic available on request.
+        </p>
+
+        <hr class="rule" />
+        <p><a href="module-library.html">Next case study: Lifecycle Module Library &rarr;</a></p>
+
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div>&copy; <span id="year"></span> Patrick Toohey</div>
+    <div><a href="../index.html">Home</a></div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

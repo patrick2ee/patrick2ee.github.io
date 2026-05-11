@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Lifecycle Module Library — Patrick Toohey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <script>
+    if (localStorage.getItem('pt_unlocked') !== 'true') {
+      window.location.replace('../unlock.html');
+    }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__brand" href="../index.html">Patrick Toohey</a>
+    <div class="nav__links">
+      <a href="../index.html#work">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <article class="section container container--reading">
+
+      <p class="eyebrow">Case Study 02</p>
+      <h1>Lifecycle Module Library</h1>
+
+      <div class="impact">
+        <div class="impact__cell">
+          <div class="impact__num">75+</div>
+          <div class="impact__label">Reusable modules in production</div>
+        </div>
+        <div class="impact__cell">
+          <div class="impact__num">100%</div>
+          <div class="impact__label">Of marketing emails powered</div>
+        </div>
+        <div class="impact__cell">
+          <div class="impact__num">2 yrs</div>
+          <div class="impact__label">As primary owner &amp; maintainer</div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Complex Problem-Solving</span>
+        <span class="tag">Built for Scale</span>
+        <span class="tag">AI Compatibility</span>
+        <span class="tag">Team Enablement</span>
+        <span class="tag">Cross-functional</span>
+      </div>
+
+      <div class="cs-body">
+        <h2>Context</h2>
+        <p>
+          Marketing email production at scale runs on infrastructure, not vibes. Every campaign
+          a manager sends is a thin layer over the same dozen structural patterns &mdash; hero
+          blocks, CTAs, two-column layouts, accessible footers. The question was whether to keep
+          rebuilding those patterns ad hoc or invest in a system. I picked the second path and
+          spent six years iterating on it.
+        </p>
+
+        <h2>Evolution</h2>
+        <p class="muted">Scroll horizontally through the timeline below.</p>
+      </div>
+
+    </article>
+
+    <!-- HORIZONTAL TIMELINE — breaks out of the reading column for visual impact.
+         Drag/scroll horizontally; cards snap into place. -->
+    <section class="container">
+      <div class="timeline-wrap">
+        <div class="timeline" role="list">
+
+          <div class="timeline-card" role="listitem">
+            <div class="timeline-card__year">2020 — 2022</div>
+            <h3>Ad hoc HTML</h3>
+            <p>Emails developed campaign-by-campaign with internal engineering resources and an external HTML coding contract. No reuse, high cost per send.</p>
+          </div>
+
+          <div class="timeline-card" role="listitem">
+            <div class="timeline-card__year">2023</div>
+            <h3>Accessibility-first refactor</h3>
+            <p>Reimagined the 15 most common modules as reusable code blocks with accessibility at the forefront &mdash; readable markup, responsive structures without image backgrounds, ARIA labeling, and proper alt text.</p>
+          </div>
+
+          <div class="timeline-card" role="listitem">
+            <div class="timeline-card__year">2023 — 2024</div>
+            <h3>Templates &amp; expansion</h3>
+            <p>Standardized hero–body–footer templates for marketing emails. Library expanded to 50+ modules. Still required copy-pasting templated HTML and updating it manually with content and design.</p>
+          </div>
+
+          <div class="timeline-card" role="listitem">
+            <div class="timeline-card__year">2025</div>
+            <h3>Iterable snippet system</h3>
+            <p>Used the Iterable platform migration as an opportunity to rebuild the library as snippets &mdash; abstracting code blocks into a preset list of variables that update via simple inputs and keywords. Managers no longer need to look at code.</p>
+          </div>
+
+          <div class="timeline-card" role="listitem">
+            <div class="timeline-card__year">2026</div>
+            <h3>AI-native pipeline</h3>
+            <p>Introduced a Claude skill that translates Figma designs into paste-ready snippets &mdash; closing the design-to-production loop and dropping the build time per email by an order of magnitude.</p>
+          </div>
+
+        </div>
+        <p class="timeline-hint">&larr; Scroll &rarr;</p>
+      </div>
+    </section>
+
+    <article class="section container container--reading">
+      <div class="cs-body">
+
+        <h2>Module examples</h2>
+        <p class="muted">A representative slice of the production library &mdash; scroll horizontally to browse.</p>
+
+      </div>
+    </article>
+
+    <!-- MODULE GALLERY — horizontal scroll/snap carousel.
+         To add or reorder: copy a <figure class="module-card"> block,
+         drop your image into /assets/images/, and update src + alt + caption. -->
+    <section class="container">
+      <div class="modules-wrap">
+        <button class="modules-btn modules-btn--prev" type="button" aria-label="Previous module" data-carousel-prev>&#8249;</button>
+        <button class="modules-btn modules-btn--next" type="button" aria-label="Next module" data-carousel-next>&#8250;</button>
+        <div class="modules" role="list" data-carousel>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/hero.png" alt="Hero module — headline, subhead, CTA, and image area" />
+            </div>
+            <figcaption class="module-card__caption">Hero</figcaption>
+          </figure>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/value-prop.png" alt="Value prop module — icon, title, body copy" />
+            </div>
+            <figcaption class="module-card__caption">Value Prop</figcaption>
+          </figure>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/secondary-cta.png" alt="Secondary CTA module — headline, body copy, outlined CTA" />
+            </div>
+            <figcaption class="module-card__caption">Secondary CTA</figcaption>
+          </figure>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/logo-header.png" alt="Logo header module" />
+            </div>
+            <figcaption class="module-card__caption">Logo Header</figcaption>
+          </figure>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/footer.png" alt="Footer module — brand statement, links, product list, legal disclosures" />
+            </div>
+            <figcaption class="module-card__caption">Footer</figcaption>
+          </figure>
+
+        </div>
+        <p class="timeline-hint">Drag, swipe, or use the arrows</p>
+      </div>
+    </section>
+
+    <article class="section container container--reading">
+      <div class="cs-body">
+
+        <h2>Module &rarr; variable abstraction</h2>
+        <p>
+          Every element that needs to be malleable for builders (marketers) becomes a variable.
+          Variables can be declared with either literal values injected into the backend code
+          (shown in blue), or conditional selections that inform which segment of code is shown
+          in the final email (shown in green).
+        </p>
+        <p>
+          Design elements that are controlled by Creative, like the primary button styles or the
+          size of hero images, are standardized in the backend code so Lifecycle never needs to
+          worry about breaking guidelines.
+        </p>
+        <p>
+          All snippets also contain a link variable for consistent application of URLs on all
+          clickable elements within the snippet.
+        </p>
+
+      </div>
+    </article>
+
+    <!-- ABSTRACTION GALLERY — larger carousel for the diagram + code + preview trio. -->
+    <section class="container">
+      <div class="modules-wrap">
+        <button class="modules-btn modules-btn--prev" type="button" aria-label="Previous example" data-carousel-prev>&#8249;</button>
+        <button class="modules-btn modules-btn--next" type="button" aria-label="Next example" data-carousel-next>&#8250;</button>
+        <div class="modules modules--large" role="list" data-carousel>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/snippet-abstraction.png" alt="Diagram showing how each element of a hero module maps to a named snippet variable" />
+            </div>
+            <figcaption class="module-card__caption">Snippet abstracted to variables</figcaption>
+          </figure>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/example-of-snippet.png" alt="Snippet code in the Iterable editor showing logo_header and hero_centered with variable values" />
+            </div>
+            <figcaption class="module-card__caption">Example of snippet within a template</figcaption>
+          </figure>
+
+          <figure class="module-card" role="listitem">
+            <div class="module-card__frame">
+              <img src="../assets/images/preview-of-filled.png" alt="Rendered preview of the filled-in email with personalized headline and image" />
+            </div>
+            <figcaption class="module-card__caption">Preview of rendered snippet</figcaption>
+          </figure>
+
+        </div>
+        <p class="timeline-hint">Drag, swipe, or use the arrows</p>
+      </div>
+    </section>
+
+    <article class="section container container--reading">
+      <div class="cs-body">
+
+        <h2>Snippet library</h2>
+        <p>
+          Three representative snippets from the production library. Each card shows the snippet
+          name, a short description, and an excerpt of the underlying code &mdash; full source
+          available on request. Click &ldquo;View full code&rdquo; to expand any excerpt.
+        </p>
+
+        <!-- Snippet 01: hero_centered -->
+        <div class="snippet">
+          <div class="snippet__head">
+            <h3 class="snippet__name">hero_centered</h3>
+            <p class="snippet__desc">
+              Centered hero with headline, optional subhead, and a CTA &mdash; including
+              conditional CTA icon variants (lock, lightning, house, or none) and a fallback
+              disclaimer.
+            </p>
+          </div>
+          <pre class="snippet__code"><code data-snippet-src="snip-hero-centered"></code></pre>
+          <button class="snippet__toggle" type="button" data-snippet-toggle>View full code <span aria-hidden="true">&darr;</span></button>
+        </div>
+
+        <!-- Raw source for hero_centered. Stored inside <script type="text/template">
+             so the browser doesn't try to render the HTML inside. main.js reads
+             textContent and applies syntax highlighting at runtime. -->
+        <script type="text/template" id="snip-hero-centered">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" role="presentation">
+                    <tr>
+                      <td class="em_txt_white em_pLR30" align="center" style=" font-family: 'Montserrat', Arial, sans-serif; color: #000000; font-size: 26px; font-weight: 600; padding: 0px 80px;">
+                            <a aria-label="From Upstart: " class="em_txt_white" href="{{{link}}}" target="_blank" style="text-decoration:none;  color: #000000; line-height: 140%;">
+                            {{{headline}}}</a>
+                      </td>
+                    </tr>
+            {{#if subhead}}
+                    <tr>
+                      <td class="em_txt_white mobile-text em_pLR30" align="center" valign="middle" style="font-family: Arial, sans-serif; color: #000000; font-size: 16px; line-height: 150%;  font-weight: 500; padding: 10px 80px 0px 80px;">{{{subhead}}}
+                        <br>
+                      </td>
+                    </tr>
+            {{else}}
+            {{/if}}
+                    {{#if cta}}
+                    <tr>
+                      <td aria-hidden="true" height="26" style="height: 26; line-height: 0px; font-size: 0px;">
+                        <img aria-hidden="true" role="image" src="https://image.link.upstart.com/lib/fe8c13727263027d73/m/1/global_spacer.gif" width="2" height="2" alt="" style="display:block;" border="0">
+                      </td>
+                    </tr>
+<tr>
+    <td>
+    <!--[if !mso]><!-->
+    <table class="gmail-show" width="234" border="0" cellspacing="0" cellpadding="0" align="center" role="presentation" style="background: linear-gradient(173deg,#ffffff, #ffffff); border-radius:100px; display: none;">
+  <tr>
+    <td align="center" valign="middle" height="56" style="border-radius:100px;">
+
+      <table width="230" border="0" cellspacing="0" cellpadding="0" role="presentation" style="background:#000000; border-radius:100px;">
+        <tr>
+          <td align="center" valign="middle" height="50" style="color:#ffffff; font-family: Arial, sans-serif; font-size:16px; font-weight:600;">
+            <a href="{{{link}}}" target="_blank" style="color:#ffffff; text-decoration:none; display:block; line-height:50px;">
+              {{{cta}}}
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--<![endif]-->
+    <table class="gmail-hide" border="0" cellspacing="0" cellpadding="0" align="center" width="100%" role="presentation">
+        <tr>
+        <td valign="middle" align="center" height="50" style="width:230; min-width:230; border-radius:100px;">
+                              <a alias="CTA1" href="{{{link}}}" target="_blank" style="text-decoration:none;">
+<div role="button">
+  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{link}}}" style="height:50px; v-text-anchor:middle; width:230px; font:bold 16pt Arial" arcsize="50%" strokecolor="#fdfdfd" fillcolor="#222929">
+<w:anchorlock/>
+<center>
+<![endif]-->
+  <span style="font-size:16px; font-family: Arial, sans-serif !important; font-weight:bold;">
+    <div class="CTA1 bg-rollover1 android-cta" style="font-family: Arial, sans-serif; background-color: #000000; border-radius:100px; color:#ffffff; display:inline-block; font-size:16px; font-weight:600; line-height:50px; text-align:center; text-decoration:none; width:230px; min-width:230px;">{{{cta}}}</div>
+  </span><!--[if mso]></center></v:roundrect><![endif]-->
+                              </div>
+                              </a>
+                            </td>
+                </tr>
+    </table>
+    </td>
+        </tr>
+        {{#if (eq cta_icon "lock")}}
+          <tr>
+          <td valign="top" align="center" style="padding: 6px 0px 0px 0px; line-height: 10px">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="230" role="presentation">
+              <tr>
+                <td class="em_txt_white" width="100%" align="center" style="line-height:10px; font-family: Arial, sans-serif; color: #222929; font-size: 10px;">
+                  <img align="texttop" valign="middle" src="https://library.iterable.com/3461/26736/14bec5cdf2d74178b9f3b55df8b6fa4b-lock.png" width="10" height="12" alt="" style="display: inline-block; border: 0px; max-width: 10px; padding: 0px 4px 2px 0px; font-size: 0px;">{{{cta_disclaimer}}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+     {{else}}
+        {{#if (eq cta_icon "lightning")}}
+        <tr>
+          <td valign="top" align="center" style="padding: 6px 0px 0px 0px; line-height: 10px">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="230" role="presentation">
+              <tr>
+                <td class="em_txt_white" width="100%" align="center" style="line-height:10px; font-family: Arial, sans-serif; color: #222929; font-size: 10px;">
+                  <img align="texttop" valign="middle" src="https://library.iterable.com/3461/26736/a47e5b7df32a4628af8143c90b6cb9f1-lightning.png" width="12" height="14" alt="" style="display: inline-block; border: 0px; max-width: 12px; padding: 0px 4px 2px 0px; font-size: 0px;">{{{cta_disclaimer}}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+    {{else}}
+        {{#if (eq cta_icon "house")}}
+        <tr>
+          <td valign="top" align="center" style="padding: 6px 0px 0px 0px; line-height: 10px">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="230" role="presentation">
+              <tr>
+                <td class="em_txt_white" width="100%" align="center" style="line-height:10px; font-family: Arial, sans-serif; color: #222929; font-size: 10px;">
+                  <img align="texttop" valign="middle" src="https://library.iterable.com/3461/26736/d39c4ed3289d44b9ac6ab41e6e1629ab-house-cta.png" width="12" height="14" alt="" style="display: inline-block; border: 0px; max-width: 12px; padding: 0px 4px 2px 0px; font-size: 0px;">{{{cta_disclaimer}}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+    {{else}}
+                    <tr>
+          <td valign="top" align="center" style="padding-top: 6px; line-height: 10px">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="230" role="presentation">
+              <tr>
+                <td width="100%" valign="middle" align="center" style="line-height:10px; font-family: Arial, sans-serif; color: #000000; font-size: 10px;" class="em_txt_white">{{{cta_disclaimer}}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+           {{/if}}
+        {{/if}}
+        {{/if}}
+        {{/if}}
+                  </table>
+        </script>
+
+        <!-- Snippet 02: 1vp_wrapped -->
+        <div class="snippet">
+          <div class="snippet__head">
+            <h3 class="snippet__name">1vp_wrapped</h3>
+            <p class="snippet__desc">
+              Single value-prop card with rounded corners. Optional icon image, optional title
+              (two size variants), and optional body copy &mdash; each section conditionally
+              rendered. Text alignment is variable-driven.
+            </p>
+          </div>
+          <pre class="snippet__code"><code data-snippet-src="snip-1vp-wrapped"></code></pre>
+          <button class="snippet__toggle" type="button" data-snippet-toggle>View full code <span aria-hidden="true">&darr;</span></button>
+        </div>
+
+        <script type="text/template" id="snip-1vp-wrapped">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="border-radius: 24px;" role="presentation">
+                <tr>
+                      <td aria-hidden="true" height="26" style="height: 26; line-height: 0px; font-size: 0px; border-top-left-radius: 24px; border-top-right-radius: 24px;">
+                        <img aria-hidden="true" role="image" src="https://library.iterable.com/3461/26736/47aa6655fe39452d9b3d3f1301ee5092-global_spacer.gif" width="2" height="2" alt="" style="display:block;" border="0">
+                      </td>
+                    </tr>
+                {{#if image}}
+              <tr>
+                <td align="center" width="60" valign="top" style="padding: 0px 0px 10px 0px;">
+              <img src="{{{image}}}" align="center" width="40" alt="" border="0" style="display: block; max-width: 60px; font-size: 16px;">
+          </td>
+            </tr>
+            {{else}}
+            {{/if}}
+
+                {{#if title}}
+  <tr>
+      {{#if (eq text_size "large")}}
+        <td class="em_pLR20" valign="top" align="{{{text_align}}}" style="font-family: Arial, sans-serif; color: #222929; font-style: normal; font-size: 18px; line-height: 150%; font-weight: 600; padding: 0px 30px 10px 30px;">{{{title}}}</td>
+        {{else}}
+        <td class="em_pLR20" valign="top" align="{{{text_align}}}" style="font-family: Arial, sans-serif; color: #222929; font-style: normal; font-size: 16px; line-height: 150%; font-weight: 600; padding: 0px 30px 10px 30px;">{{{title}}}</td>
+        {{/if}}
+        </tr>
+    {{else}}
+  {{/if}}
+  {{#if body}}
+                <tr>
+        <td class="em_pLR20" valign="top" align="{{{text_align}}}" style="font-family: Arial, sans-serif; color: #222929; font-style: normal; font-size: 16px; line-height: 150%; font-weight: 500; padding: 0px 30px 0px 30px;">{{{body}}}</td>
+        </tr>
+              {{else}}
+  {{/if}}
+  <tr>
+                      <td aria-hidden="true" height="26" style="height: 26; line-height: 0px; font-size: 0px; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;">
+                        <img aria-hidden="true" role="image" src="https://library.iterable.com/3461/26736/47aa6655fe39452d9b3d3f1301ee5092-global_spacer.gif" width="2" height="2" alt="" style="display:block;" border="0">
+                      </td>
+                    </tr>
+            </table>
+        </script>
+
+        <!-- Snippet 03: footer -->
+        <div class="snippet">
+          <div class="snippet__head">
+            <h3 class="snippet__name">footer</h3>
+            <p class="snippet__desc">
+              Brand footer with a horizontal divider and conditional rendering by email type.
+              Transactional emails (PL tx, mortgage tx) render a stripped-down version;
+              marketing/leads emails get an unsubscribe link, with the URL variable swapped
+              depending on whether the recipient is a known user or anonymous lead.
+            </p>
+          </div>
+          <pre class="snippet__code"><code data-snippet-src="snip-footer"></code></pre>
+          <button class="snippet__toggle" type="button" data-snippet-toggle>View full code <span aria-hidden="true">&darr;</span></button>
+        </div>
+
+        <script type="text/template" id="snip-footer">
+<tr>
+        <td class="em_pLR25" style="padding: 0px 80px;">
+          <table class="gmail-hide" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#000000" role="presentation">
+      <tr>
+        <td height="100%" valign="middle" align="center">
+          <img width="100%" src="https://image.link.upstart.com/lib/fe8c13727263027d73/m/1/White+Line+New.png" alt="divider">
+        </td>
+        </tr>
+    </table>
+          <!--[if !mso]><!-->
+          <table class="gmail-show" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" role="presentation" style="background-color:#000000; color: #ffffff; display: none;">
+            <tr>
+              <td height="1px" valign="middle" align="center" style="background: #ffffff;">
+              </td>
+            </tr>
+          </table>
+          <!--<![endif]-->
+        </td>
+        </tr>
+{{#if (or
+  (eq type "PL tx")
+  (eq templateName "mortgage tx")
+)}}
+{{else}}
+
+
+{{#if (or
+  (eq type "PL Leads")
+  (eq templateName "mortgage leads")
+)}}
+<tr>
+        <td class="em_defaultlink em_pLR25" valign="top" align="center" style="font-family: 'Figtree', Arial, sans-serif; font-style: normal; font-size: 12px; line-height: 150%; font-weight: 600; padding: 20px 80px 16px 80px; background-color:#000000; color: #3FD0CC;"><a aria-label="Contact our support team" class="inline-link-teal-footer" alias="Unsubscribe" href="{{unsubscribeUrl}}" target="_blank" style="text-decoration:none; color: #3FD0CC;">Unsubscribe</a></td>
+        </tr>
+ {{else}}
+  <tr>
+        <td class="em_defaultlink em_pLR25" valign="top" align="center" style="font-family: 'Figtree', Arial, sans-serif; font-style: normal; font-size: 12px; line-height: 150%; font-weight: 600; padding: 20px 80px 16px 80px; background-color:#000000; color: #3FD0CC;"><a aria-label="Contact our support team" class="inline-link-teal-footer" alias="Unsubscribe" href="{{{hostedUnsubscribeUrl}}}" target="_blank" style="text-decoration:none; color: #3FD0CC;">Unsubscribe</a></td>
+        </tr>
+  {{/if}}
+        <tr>
+        <td class="em_pLR25" style="padding: 0px 80px;">
+          <table class="gmail-hide" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#000000" role="presentation">
+      <tr>
+        <td height="100%" valign="middle" align="center">
+          <img width="100%" src="https://image.link.upstart.com/lib/fe8c13727263027d73/m/1/White+Line+New.png" alt="divider">
+        </td>
+        </tr>
+    </table>
+          <!--[if !mso]><!-->
+          <table class="gmail-show" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" role="presentation" style="background-color:#000000; color: #ffffff; display: none;">
+            <tr>
+              <td height="1px" valign="middle" align="center" style="background: #ffffff;">
+              </td>
+            </tr>
+          </table>
+          <!--<![endif]-->
+        </td>
+        </tr>
+    {{/if}}
+        </script>
+
+
+        <h2>Outcome</h2>
+        <p>
+          Today the library powers 100% of marketing email production. The role of a Lifecycle
+          manager fundamentally shifted &mdash; from a copy-paste-and-edit-HTML role to a
+          strategy-and-content role. The Claude integration extended that lever further: design
+          handoff is now an automated pipeline, not a queue.
+        </p>
+
+        <hr class="rule" />
+        <p>
+          <a href="dq-reactivation.html">&larr; Previous: Reactivating Disqualified Applicants</a>
+          &nbsp;&middot;&nbsp;
+          <a href="iterable-migration.html">Next: SFMC &rarr; Iterable Migration &rarr;</a>
+        </p>
+
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div>&copy; <span id="year"></span> Patrick Toohey</div>
+    <div><a href="../index.html">Home</a></div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
