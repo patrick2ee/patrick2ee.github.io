@@ -56,11 +56,18 @@
       </p>
 
       <h2>Resume</h2>
-      <p>
-        <!-- TODO: drop your resume PDF into /assets and update the href below.
-             Suggested filename: assets/patrick-toohey-resume.pdf -->
-        <a href="assets/patrick-toohey-resume.pdf" download>Download resume (PDF) &darr;</a>
-      </p>
+      <!-- Inline PDF preview. Drop your resume at
+           /assets/patrick-toohey-resume.pdf and the preview will populate.
+           The #view=FitH fragment tells the PDF viewer to fit width. -->
+      <div class="resume-preview">
+        <iframe
+          class="resume-preview__frame"
+          src="assets/patrick-toohey-resume.pdf#view=FitH"
+          title="Patrick Toohey resume preview"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p><a class="btn" href="assets/patrick-toohey-resume.pdf" download>Download resume (PDF) &darr;</a></p>
 
       <hr class="rule" />
 
@@ -83,7 +90,7 @@
       ========================================================= -->
       <form
         class="form"
-        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        action="https://formspree.io/f/xbdwwrdk"
         method="POST"
       >
         <label for="name">Name</label>
