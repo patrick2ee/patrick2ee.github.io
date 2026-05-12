@@ -104,9 +104,9 @@ p  { margin: 0 0 var(--s-2); }
 @media (max-width: 700px) {
   .container { padding: 0 12px; }
   .nav       { padding-left: 12px; padding-right: 12px; }
-  .section   { padding: var(--s-6) 0; }
-  .section--tight { padding: var(--s-4) 0; }
-  .hero      { padding: var(--s-8) 0 var(--s-6); }
+  .section   { padding-block: var(--s-6); }
+  .section--tight { padding-block: var(--s-4); }
+  .hero      { padding-block: var(--s-8) var(--s-6); }
   .rule      { margin: var(--s-4) 0; }
 
   /* Stop full-width breakouts from bleeding past the viewport edges */
@@ -118,8 +118,10 @@ p  { margin: 0 0 var(--s-2); }
   .timeline, .modules { padding: var(--s-3) 12px; }
 }
 
-.section { padding: var(--s-8) 0; }
-.section--tight { padding: var(--s-6) 0; }
+/* Use padding-block (top + bottom only) so horizontal padding from
+   a co-applied .container class is never overwritten. */
+.section { padding-block: var(--s-8); }
+.section--tight { padding-block: var(--s-6); }
 
 /* 4. COMPONENTS ---------------------------------------------- */
 
@@ -149,7 +151,7 @@ p  { margin: 0 0 var(--s-2); }
 .nav__links a:hover { color: var(--accent); }
 
 /* --- Hero --- */
-.hero { padding: var(--s-12) 0 var(--s-8); }
+.hero { padding-block: var(--s-12) var(--s-8); }
 .hero__name { font-size: clamp(3rem, 7vw, 5rem); margin-bottom: var(--s-4); }
 .hero__tagline {
   max-width: var(--w-reading);
