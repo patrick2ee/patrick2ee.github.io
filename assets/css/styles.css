@@ -93,7 +93,7 @@ p  { margin: 0 0 var(--s-2); }
 .rule {
   border: 0;
   border-top: 1px solid var(--rule);
-  margin: var(--s-6) 0;
+  margin: var(--s-3) 0;
 }
 
 /* --- Mobile overrides
@@ -157,7 +157,6 @@ p  { margin: 0 0 var(--s-2); }
   max-width: var(--w-reading);
   font-size: 1.25rem;
   color: var(--muted);
-  font-style: italic;
 }
 
 /* --- Pillars (What I do) --- */
