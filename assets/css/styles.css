@@ -102,8 +102,8 @@ p  { margin: 0 0 var(--s-2); }
    broken-out elements (so carousels & matrix don't bleed to the edge),
    and further reduced vertical padding for a more compact feel. */
 @media (max-width: 700px) {
-  .container { padding: 0 12px; }
-  .nav       { padding-left: 12px; padding-right: 12px; }
+  .container { padding: 0 16px; }
+  .nav       { padding-left: 16px; padding-right: 16px; }
   .section   { padding-block: var(--s-6); }
   .section--tight { padding-block: var(--s-4); }
   .hero      { padding-block: var(--s-8) var(--s-6); }
@@ -115,7 +115,7 @@ p  { margin: 0 0 var(--s-2); }
     margin-left: 0;
     margin-right: 0;
   }
-  .timeline, .modules { padding: var(--s-3) 12px; }
+  .timeline, .modules { padding: var(--s-3) 16px; }
 }
 
 /* Use padding-block (top + bottom only) so horizontal padding from
@@ -162,16 +162,13 @@ p  { margin: 0 0 var(--s-2); }
 /* Circular headshot above the hero name */
 .hero__headshot {
   display: block;
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--rule);
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  margin-bottom: var(--s-4);
-}
-@media (max-width: 700px) {
-  .hero__headshot { width: 110px; height: 110px; margin-bottom: var(--s-3); }
+  margin-bottom: var(--s-3);
 }
 
 /* --- Pillars (What I do) --- */
